@@ -5,32 +5,38 @@
 
     //var_dump($html);
     
-    $videos = [];
+    foreach ($html->find('a') as $video)
+        //if($video->id == 'video-title')
+                var_dump($video->id);
 
-    // Find top ten videos
-    $i = 1;
-    foreach ($html->find('ytd-video-renderer.ytd-expanded-shelf-contents-renderer') as $video) {
-        if ($i > 10) {
-                break;
-        }
+        // $ret = $html->find('div[id=foo]'); 
 
-        // Find item link element
-        $videoDetails = $video->find('a#video-title', 0);
+//     $videos = [];
 
-        // get title attribute
-        $videoTitle = $videoDetails->title;
+//     // Find top ten videos
+//     $i = 1;
+//     foreach ($html->find('ytd-video-renderer.ytd-expanded-shelf-contents-renderer') as $video) {
+//         if ($i > 10) {
+//                 break;
+//         }
 
-        // get href attribute
-        $videoUrl = 'https://youtube.com' . $videoDetails->href;
+//         // Find item link element
+//         $videoDetails = $video->find('a#video-title', 0);
 
-        // push to a list of videos
-        $videos[] = [
-                'title' => $videoTitle,
-                'url' => $videoUrl
-        ];
+//         // get title attribute
+//         $videoTitle = $videoDetails->title;
 
-        $i++;
-}
-var_dump($videos);
+//         // get href attribute
+//         $videoUrl = 'https://youtube.com' . $videoDetails->href;
+
+//         // push to a list of videos
+//         $videos[] = [
+//                 'title' => $videoTitle,
+//                 'url' => $videoUrl
+//         ];
+
+//         $i++;
+// }
+// var_dump($videos);
 
 ?>
